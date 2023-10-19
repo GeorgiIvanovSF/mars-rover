@@ -1,6 +1,8 @@
 package navigation
 
-import "golang.org/x/exp/slices"
+import (
+	"golang.org/x/exp/slices"
+)
 
 func (g *Grid) IsValid() bool {
 	if g.Height < 0 || g.Width < 0 {

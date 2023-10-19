@@ -1,7 +1,5 @@
 package navigation
 
-import "fmt"
-
 var compass = map[Direction]map[Instruction]Direction{
 	North: {RotateLeft: West,
 		RotateRight: East},
@@ -22,12 +20,12 @@ func NewPosition(x int, y int, d rune) Position {
 }
 
 func (p *Position) ChangeDirection(i Instruction) {
-	fmt.Printf("Change Direction from %s to %s\n", string(p.Direction), string(compass[p.Direction][i]))
+	// fmt.Printf("Change Direction from %s to %s\n", string(p.Direction), string(compass[p.Direction][i]))
 	p.Direction = compass[p.Direction][i]
 }
 
 func (p *Position) ChangeCoordinates() {
-	fmt.Printf("Move from X: %d, Y: %d to ", p.X, p.Y)
+	// fmt.Printf("Move from X: %d, Y: %d to ", p.X, p.Y)
 	switch p.Direction {
 	case North:
 		p.Y++
@@ -39,14 +37,14 @@ func (p *Position) ChangeCoordinates() {
 		p.X--
 	}
 
-	fmt.Printf("X: %d, Y: %d\n", p.X, p.Y)
+	// fmt.Printf("X: %d, Y: %d\n", p.X, p.Y)
 
 }
 
-func BuildInstructions(row string) []Instruction {
+func BuildInstructions(line string) []Instruction {
 	var instructions []Instruction
 
-	for _, ins := range row {
+	for _, ins := range line {
 		if Instruction(ins).IsValid() {
 			instructions = append(instructions, Instruction(ins))
 		}
