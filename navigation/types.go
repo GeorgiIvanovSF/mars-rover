@@ -5,10 +5,10 @@ type Instruction rune
 
 const (
 	North       Direction   = 'N'
-	South       Direction   = 'S'
 	East        Direction   = 'E'
+	South       Direction   = 'S'
 	West        Direction   = 'W'
-	Move        Instruction = 'M' // x y +-1
+	Move        Instruction = 'M'
 	RotateRight Instruction = 'R'
 	RotateLeft  Instruction = 'L'
 )

@@ -2,21 +2,21 @@ package navigation
 
 import "golang.org/x/exp/slices"
 
-func (g Grid) IsValid() bool {
+func (g *Grid) IsValid() bool {
 	if g.Height < 0 || g.Width < 0 {
 		return false
 	}
 	return true
 }
 
-func (p Position) IsValid() bool {
+func (p *Position) IsValid() bool {
 	if p.X < 0 || p.Y < 0 {
 		return false
 	}
 	return true
 }
 
-func (p Position) IsInGrid(g Grid) bool {
+func (p *Position) IsWithinGrid(g Grid) bool {
 	if p.X > g.Width || p.Y > g.Height {
 		return false
 	}
