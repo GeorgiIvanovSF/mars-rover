@@ -17,5 +17,4 @@ func main() {
 
 	r.Instructions = navigation.BuildInstructions("MMLMMLMMLMML")
 	r.RunInstructions()
-
 }
