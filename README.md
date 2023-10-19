@@ -53,8 +53,7 @@ Assuming the example input is given, the output is:
 # Usage
 
 If you run the app directly without cli input, it will take example input from the "resources/example-commands.txt".
-
-if you want to provide a custom file, you can use the ```--inputFile```  parameter
+If you want to provide a custom file, you can use the ```--inputFile```  parameter
 
 Example:
 
