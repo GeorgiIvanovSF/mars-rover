@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"flag"
 	"fmt"
 
 	"github.com/GeorgiIvanovSF/mars-rover/inputparser"
@@ -10,9 +11,11 @@ import (
 )
 
 func main() {
+	cmdFilePathInput := flag.String("inputFile", "resources/example-commands.txt", "full or relative path of the file containing the input definitions")
+	flag.Parse()
 
 	parser := inputparser.Parser{
-		FilePath: "resources/example-commands.txt",
+		FilePath: *cmdFilePathInput,
 	}
 
 	inputLines, err := parser.GetFileLines()
@@ -21,7 +24,7 @@ func main() {
 		panic(err)
 	}
 
-	if inputLines == nil || len(inputLines) < 3 {
+	if inputLines == nil || len(inputLines) < 3 || (len(inputLines)-1)%2 != 0 {
 		panic(errors.New("Not enough lines in input file"))
 	}
 
@@ -40,16 +43,14 @@ func main() {
 
 	var rovers []rover.Rover
 
-	if len(inputLines) >= 3 {
-		for i := 1; i < len(inputLines); i = i + 2 {
-			if parser.ValidatePositionLine(inputLines[i]) && parser.ValidateInstructionsLine(inputLines[i+1]) {
-				position := parser.GetPositionDefinition(inputLines[i])
-				if position.IsValid() {
-					rovers = append(rovers, rover.Rover{
-						Position:     position,
-						Instructions: navigation.BuildInstructions(inputLines[i+1]),
-					})
-				}
+	for i := 1; i < len(inputLines); i = i + 2 {
+		if parser.ValidatePositionLine(inputLines[i]) && parser.ValidateInstructionsLine(inputLines[i+1]) {
+			position := parser.GetPositionDefinition(inputLines[i])
+			if position.IsValid() {
+				rovers = append(rovers, rover.Rover{
+					Position:     position,
+					Instructions: navigation.BuildInstructions(inputLines[i+1]),
+				})
 			}
 		}
 	}

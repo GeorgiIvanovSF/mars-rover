@@ -51,3 +51,14 @@ Assuming the example input is given, the output is:
 1 3 N
 
 5 1 E
+
+
+# Usage
+
+If you run the app directly without cli input, it will take example input from the "resources/example-commands".
+
+if you want to provide a custom file, you can use the ```--inputFile```  parameter
+
+Example:
+
+``` go run main.go --inputFile="resources/example-commands-cmd.txt"```
