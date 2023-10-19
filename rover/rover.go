@@ -3,8 +3,6 @@ package rover
 import "github.com/GeorgiIvanovSF/mars-rover/navigation"
 
 type Rover struct {
-	X            int
-	Y            int
 	Position     navigation.Position
 	Instructions []navigation.Instruction
 }

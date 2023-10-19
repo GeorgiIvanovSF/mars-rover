@@ -2,7 +2,7 @@ package navigation
 
 import "fmt"
 
-var Compass = map[Direction]map[Instruction]Direction{
+var compass = map[Direction]map[Instruction]Direction{
 	North: {RotateLeft: West,
 		RotateRight: East},
 	South: {RotateLeft: East,
@@ -22,8 +22,8 @@ func NewPosition(x int, y int, d rune) Position {
 }
 
 func (p *Position) ChangeDirection(i Instruction) {
-	fmt.Printf("Change Direction from %s to %s\n", string(p.Direction), string(Compass[p.Direction][i]))
-	p.Direction = Compass[p.Direction][i]
+	fmt.Printf("Change Direction from %s to %s\n", string(p.Direction), string(compass[p.Direction][i]))
+	p.Direction = compass[p.Direction][i]
 }
 
 func (p *Position) Change() {
