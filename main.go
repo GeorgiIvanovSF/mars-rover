@@ -1,21 +1,21 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/GeorgiIvanovSF/mars-rover/navigation"
+	"github.com/GeorgiIvanovSF/mars-rover/rover"
 )
 
 func main() {
 
-	test := navigation.Position{
-		X:         1,
-		Y:         2,
-		Direction: 'N',
-	}
+	var pos navigation.Position
+	pos.X = 0
+	var r rover.Rover
+	r.X = 0
+	r.Y = 0
+	r.Position = navigation.NewPosition(0, 0, 'N')
+	r.Instructions = navigation.BuildInstructions("MMLMMRMMLMMR")
 
-	test.ChangeDirection(navigation.RotateLeft)
-	test.Move()
+	//fmt.Println(rover.Position.Direction)
+	r.RunInstructions()
 
-	fmt.Printf("X: %d, Y: %d, Direction: %s", test.X, test.Y, string(test.Direction))
 }
