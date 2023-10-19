@@ -23,14 +23,3 @@ type Grid struct {
 	Width  int
 	Height int
 }
-
-var Compass = map[Direction]map[Instruction]Direction{
-	North: {RotateLeft: West,
-		RotateRight: East},
-	South: {RotateLeft: East,
-		RotateRight: West},
-	East: {RotateLeft: North,
-		RotateRight: South},
-	West: {RotateLeft: South,
-		RotateRight: North},
-}

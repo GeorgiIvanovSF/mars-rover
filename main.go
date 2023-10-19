@@ -15,6 +15,7 @@ func main() {
 	}
 
 	test.ChangeDirection(navigation.RotateLeft)
+	test.Move()
 
-	fmt.Println(string(test.Direction))
+	fmt.Printf("X: %d, Y: %d, Direction: %s", test.X, test.Y, string(test.Direction))
 }
