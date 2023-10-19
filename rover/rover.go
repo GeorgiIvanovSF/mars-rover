@@ -2,10 +2,6 @@ package rover
 
 import "github.com/GeorgiIvanovSF/mars-rover/navigation"
 
-type RoverDefinition struct {
-	PositionLine     string
-	InstructionsLine string
-}
 type Rover struct {
 	Position     navigation.Position
 	Instructions []navigation.Instruction
