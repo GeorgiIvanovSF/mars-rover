@@ -19,7 +19,7 @@ func (p Parser) ValidateGridLine(line string) bool {
 }
 
 func (p Parser) ValidatePositionLine(line string) bool {
-	if !regexp.MustCompile(`^[0-9]+ [0-9]+ [NESW]$`).MatchString(line) {
+	if !regexp.MustCompile(`^[0-9]+ [0-9]+ [N|E|S|W]$`).MatchString(line) {
 		return false
 	}
 
