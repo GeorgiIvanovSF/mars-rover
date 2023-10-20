@@ -24,6 +24,4 @@ type Grid struct {
 	Height int
 }
 
-type compass struct {
-	face map[Direction]map[Instruction]Direction
-}
+type compass struct{}

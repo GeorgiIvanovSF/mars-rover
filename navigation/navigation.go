@@ -3,11 +3,10 @@ package navigation
 import "fmt"
 
 func NewCompass() compass {
-	var compass compass
-	return compass
+	return compass{}
 }
 
-func (c compass) Face() map[Direction]map[Instruction]Direction {
+func (c compass) Use() map[Direction]map[Instruction]Direction {
 	return map[Direction]map[Instruction]Direction{
 		North: {RotateLeft: West,
 			RotateRight: East},
@@ -21,8 +20,7 @@ func (c compass) Face() map[Direction]map[Instruction]Direction {
 }
 
 func (p *Position) ChangeDirection(i Instruction) {
-	compass := NewCompass()
-	p.Direction = compass.Face()[p.Direction][i]
+	p.Direction = NewCompass().Use()[p.Direction][i]
 }
 
 func (p *Position) ChangeCoordinates() {
