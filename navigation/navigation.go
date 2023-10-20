@@ -2,19 +2,27 @@ package navigation
 
 import "fmt"
 
-var compass = map[Direction]map[Instruction]Direction{
-	North: {RotateLeft: West,
-		RotateRight: East},
-	East: {RotateLeft: North,
-		RotateRight: South},
-	South: {RotateLeft: East,
-		RotateRight: West},
-	West: {RotateLeft: South,
-		RotateRight: North},
+func NewCompass() compass {
+	var compass compass
+	return compass
+}
+
+func (c compass) Face() map[Direction]map[Instruction]Direction {
+	return map[Direction]map[Instruction]Direction{
+		North: {RotateLeft: West,
+			RotateRight: East},
+		East: {RotateLeft: North,
+			RotateRight: South},
+		South: {RotateLeft: East,
+			RotateRight: West},
+		West: {RotateLeft: South,
+			RotateRight: North},
+	}
 }
 
 func (p *Position) ChangeDirection(i Instruction) {
-	p.Direction = compass[p.Direction][i]
+	compass := NewCompass()
+	p.Direction = compass.Face()[p.Direction][i]
 }
 
 func (p *Position) ChangeCoordinates() {

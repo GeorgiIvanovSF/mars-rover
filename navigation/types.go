@@ -23,3 +23,7 @@ type Grid struct {
 	Width  int
 	Height int
 }
+
+type compass struct {
+	face map[Direction]map[Instruction]Direction
+}
