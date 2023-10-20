@@ -20,6 +20,7 @@ func (p *Parser) GetFileLines() ([]string, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
@@ -27,8 +28,6 @@ func (p *Parser) GetFileLines() ([]string, error) {
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
-
-	file.Close()
 
 	return lines, nil
 }
