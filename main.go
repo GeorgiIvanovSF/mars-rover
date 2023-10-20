@@ -59,7 +59,7 @@ func main() {
 		if len(rover.Instructions) < 1 {
 			panic(errors.New("There is a rover without Instructions at position " + rover.Position.String()))
 		}
-		rover.RunInstructions()
+		rover.RunInstructions(grid)
 		fmt.Println(rover.Position.String())
 	}
 }

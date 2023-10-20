@@ -7,20 +7,27 @@ type Rover struct {
 	Instructions []navigation.Instruction
 }
 
-func (r *Rover) Move() {
-	r.Position.ChangeCoordinates()
+func (r *Rover) Move(g navigation.Grid) {
+
+	nextPosition := r.Position
+	nextPosition.ChangeCoordinates()
+
+	if nextPosition.IsWithinGrid(g) {
+		r.Position.ChangeCoordinates()
+	}
+
 }
 
 func (r *Rover) Turn(instruction navigation.Instruction) {
 	r.Position.ChangeDirection(instruction)
 }
 
-func (r *Rover) RunInstructions() {
+func (r *Rover) RunInstructions(g navigation.Grid) {
 	for _, instruction := range r.Instructions {
 		if instruction.IsRotation() {
 			r.Turn(instruction)
 		} else {
-			r.Move()
+			r.Move(g)
 		}
 	}
 }

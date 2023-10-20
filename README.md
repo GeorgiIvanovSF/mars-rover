@@ -58,3 +58,15 @@ If you want to provide a custom file, you can use the ```--inputFile```  paramet
 Example:
 
 ``` go run main.go --inputFile="resources/example-commands-cmd.txt"```
+
+# Internal Decisions
+It was not clear from the task what should happen with the rover if the boundaries of the Grid are reached
+* One option is to block execution and exit with error
+* Other is to continue processing without allowing the rover to exit the boundaries
+* There could be error handling for such situations
+
+In real world scenario those should be clarified with the Project Owner to match the Business needs. In this case I decided to just continue with the second option.
+
+Also there isn't specific requirement for unit testing - those I added following up on our initial interview.
+
+No specific actions were outlined in the task when validation fails. Here again this can be debated with the project owner. I've decided to handle them by default with standard error throwing.
