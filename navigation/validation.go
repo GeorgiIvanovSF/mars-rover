@@ -5,7 +5,7 @@ import (
 )
 
 func (g *Grid) IsValid() bool {
-	if g.Height < 0 || g.Width < 0 {
+	if g.Height < 1 || g.Width < 1 {
 		return false
 	}
 	return true
