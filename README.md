@@ -67,6 +67,6 @@ It was not clear from the task what should happen with the rover if the boundari
 
 In real world scenario those should be clarified with the Project Owner to match the Business needs. In this case I decided to just continue with the second option.
 
-Also there isn't specific requirement for unit testing - those I added following up on our initial interview. Some of the functions are not unite tested because they are composed from already covered blocks.
+Also there isn't specific requirement for unit testing - those I added following up on our initial interview. Some of the functions are not unit tested because they are composed from already covered blocks.
 
 No specific actions were outlined in the task when validation fails. Here again this can be debated with the project owner. I've decided to handle them by default with standard error throwing.
