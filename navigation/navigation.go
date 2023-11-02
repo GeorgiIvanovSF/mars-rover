@@ -2,8 +2,8 @@ package navigation
 
 import "fmt"
 
-func NewCompass() compass {
-	return compass{}
+func NewCompass() (c compass) {
+	return
 }
 
 func (c compass) Use() map[Direction]map[Instruction]Direction {
