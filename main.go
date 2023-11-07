@@ -30,14 +30,16 @@ func main() {
 
 	gridLine := inputLines[0]
 
-	var grid navigation.Grid
+	var theGrid navigation.Grid
 	if parser.ValidateGridLine(gridLine) {
-		grid = parser.GetGridDefinition(gridLine)
+		theGrid = parser.GetGridDefinition(gridLine)
 	} else {
 		panic(errors.New("Invalid Grid input: " + gridLine))
 	}
 
-	if !grid.IsValid() {
+	// Somewhere once upon a time I've stumbled upon one line - "You should be able to read your code like a sentence".
+	// "If the grid is not valid panic with new error" sounds good to me.
+	if !theGrid.IsValid() {
 		panic(errors.New("Grid was built with invalid arguments: " + gridLine))
 	}
 
@@ -59,7 +61,7 @@ func main() {
 		if len(rover.Instructions) < 1 {
 			panic(errors.New("There is a rover without Instructions at position " + rover.Position.String()))
 		}
-		rover.RunInstructions(grid)
+		rover.RunInstructions(theGrid)
 		fmt.Println(rover.Position.String())
 	}
 }
